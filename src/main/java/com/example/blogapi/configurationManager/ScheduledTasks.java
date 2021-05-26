@@ -19,7 +19,6 @@ public class ScheduledTasks {
 
         @Scheduled(fixedRate = 3000)
         public void scheduleTaskWithFixedRate() {
-           // logger.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()) );
             personService.deactivatedPersonScheduler();
         }
 

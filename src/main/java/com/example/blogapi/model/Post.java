@@ -1,5 +1,6 @@
 package com.example.blogapi.model;
 
+import com.example.blogapi.utility.Timer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,13 +9,14 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-public class Post {
+public class Post extends Timer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

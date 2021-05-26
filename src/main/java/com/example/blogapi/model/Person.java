@@ -1,5 +1,6 @@
 package com.example.blogapi.model;
 
+import com.example.blogapi.utility.Timer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -16,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Person {
+public class Person extends Timer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,6 +51,4 @@ public class Person {
             = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Post> post;
-
-
 }

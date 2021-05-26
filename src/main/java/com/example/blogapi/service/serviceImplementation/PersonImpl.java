@@ -188,13 +188,13 @@ public class PersonImpl implements PersonService {
             String presentDate = DateFor.format(date);
             String deleteDate = person.getRemoveDate();
             int actionDelete = presentDate.compareTo(deleteDate);
-            if (actionDelete > 0 || actionDelete == 0) {
-                System.out.println("user finally deleted");
+            if (actionDelete >= 0) {
+
                 person.setIsDeleted(1);
                 personRepository.save(person);
             }
         });
-        System.out.println("The list of scheduled for deletion"+persons);
+
     }
 
 }

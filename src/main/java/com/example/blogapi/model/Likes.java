@@ -1,10 +1,13 @@
 package com.example.blogapi.model;
 
+import com.example.blogapi.utility.Timer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 
 import static javax.persistence.GenerationType.IDENTITY;
 import static javax.persistence.GenerationType.SEQUENCE;
@@ -13,7 +16,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Likes {
+public class Likes extends Timer implements Serializable {
 
     @Id
     @GeneratedValue(
