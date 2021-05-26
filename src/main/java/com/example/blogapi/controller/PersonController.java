@@ -1,9 +1,9 @@
 package com.example.blogapi.controller;
 
-import com.example.blogapi.POJO.PersonMapper;
+import com.example.blogapi.dto.PersonMapper;
 import com.example.blogapi.model.Person;
 import com.example.blogapi.service.PersonService;
-import com.example.blogapi.POJO.ResponseMapper;
+import com.example.blogapi.dto.ResponseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

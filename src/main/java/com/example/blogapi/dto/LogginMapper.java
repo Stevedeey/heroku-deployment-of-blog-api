@@ -1,4 +1,4 @@
-package com.example.blogapi.POJO;
+package com.example.blogapi.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,10 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class PersonMapper {
-    private Long id;
-    private String fullname;
-    private String username;
+public class LogginMapper {
     private String email;
-    private String profilePicture;
+    private String password;
 }

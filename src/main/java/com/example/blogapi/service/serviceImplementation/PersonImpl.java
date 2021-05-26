@@ -1,6 +1,6 @@
 package com.example.blogapi.service.serviceImplementation;
 
-import com.example.blogapi.POJO.PersonMapper;
+import com.example.blogapi.dto.PersonMapper;
 import com.example.blogapi.model.Person;
 import com.example.blogapi.repository.PersonRepository;
 import com.example.blogapi.service.PersonService;

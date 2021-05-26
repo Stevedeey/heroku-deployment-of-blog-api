@@ -1,6 +1,6 @@
 package com.example.blogapi.service;
 
-import com.example.blogapi.POJO.PersonMapper;
+import com.example.blogapi.dto.PersonMapper;
 import com.example.blogapi.model.Person;
 import org.springframework.web.multipart.MultipartFile;
 

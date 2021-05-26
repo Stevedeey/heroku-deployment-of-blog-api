@@ -1,31 +1,38 @@
 package com.example.blogapi.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    @NotBlank
     @Size(min = 3, max = 50)
     private String title;
 
     @NotBlank
-    @Size(max=1000)
-    @Column(nullable = false)
+    @Size(max = 1000)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
 
-    @Column()
+    @Column(nullable = false)
     private String status;
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "personId", referencedColumnName = "id")

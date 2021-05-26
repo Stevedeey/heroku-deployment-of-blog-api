@@ -1,4 +1,4 @@
-package com.example.blogapi.POJO;
+package com.example.blogapi.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

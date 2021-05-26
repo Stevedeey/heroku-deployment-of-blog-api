@@ -1,11 +1,18 @@
 package com.example.blogapi.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Likes {
 
     @Id
