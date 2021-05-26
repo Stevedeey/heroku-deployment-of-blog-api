@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public interface PersonService {
-         String createUser(Person person);
+    String createUser(Person person);
     String loginUser(String email, String password);
     List<PersonMapper> getUsers();
     PersonMapper getUserById(Long id);
