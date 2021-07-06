@@ -87,6 +87,8 @@
 
                     <excludes>
                         <exclude>
+                            <source>1.8</source>
+                            <target>1.8</target>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
