@@ -8,7 +8,7 @@ import lombok.ToString;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
 import javax.validation.constraints.Size;
 
 import java.io.Serializable;
@@ -31,7 +31,7 @@ public class Comment extends Timer implements Serializable {
             nullable = false,
             columnDefinition = "TEXT"
     )
-    @NotBlank
+    @NotNull
     @Size(min = 3)
     private String comment;
 

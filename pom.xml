@@ -13,13 +13,9 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>BlogApi</name>
     <description>Demo project for Spring Boot</description>
-
     <properties>
-        <java.version>16</java.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>11</java.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -72,6 +68,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -84,11 +81,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-
                     <excludes>
                         <exclude>
-                            <source>1.8</source>
-                            <target>1.8</target>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                         </exclude>
