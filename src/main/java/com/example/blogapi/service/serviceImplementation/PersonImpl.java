@@ -34,7 +34,7 @@ public class PersonImpl implements PersonService {
 
         try {
             Optional check = personRepository.findPersonByEmail(person.getEmail());
-            if(check.isEmpty()) {
+            if(!check.isPresent()) {
                 person.setPassword(Encryption.encryptPassword(person.getPassword()));
                 personRepository.save(person);
                 flag = "successfully created";
