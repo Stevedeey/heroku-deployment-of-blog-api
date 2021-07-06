@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface CommentService {
     boolean createComment(Long userId, Long postId, String comment);
+   // boolean createComment(Long userId, Person person, Long postId, String comment);
     List<CommentMapper> getCommentsByPostId(Long postId);
     boolean editComment(Long commentId, Person person, Long postId, String comment);
     boolean deleteComment(Long commentId);

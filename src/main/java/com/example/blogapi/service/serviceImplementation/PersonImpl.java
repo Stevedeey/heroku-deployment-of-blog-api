@@ -52,7 +52,7 @@ public class PersonImpl implements PersonService {
      * @param password
      * @return Person
      * */
-    public String loginUser(String email, String password){
+    public String loginUser(String email, String password){ // next time, try and use Object to cater for Person and String
         String message = "";
         try {
             Optional<Person> person = personRepository.findPersonByEmail(email);
@@ -78,8 +78,9 @@ public class PersonImpl implements PersonService {
     public List<PersonMapper> getUsers(){
         List<PersonMapper> persons = new ArrayList<>();
         try {
-            List<Person> personList = personRepository.findAll();
-            personList.forEach(person->{
+//            List<Person> personList = personRepository.findAll();
+                List<Person> personList = personRepository.findAllByPersonDeactivatedEquals(0);
+                personList.forEach(person->{
                 PersonMapper personMapper = new PersonMapper();
                 personMapper.setFullname(person.getFullname());
                 personMapper.setUsername(person.getUsername());
@@ -149,7 +150,7 @@ public class PersonImpl implements PersonService {
             Person user = personRepository.findPersonByEmail(person.getEmail()).get();
             if(user.getId() == personId){
                 Calendar calendar = Calendar.getInstance();
-                calendar.add(Calendar.MINUTE, 5);
+                calendar.add(Calendar.MINUTE, 3);
                 String presentDate = DateFor.format(calendar.getTime());
                 user.setPersonDeactivated(1);
                 user.setRemoveDate(presentDate);
@@ -172,6 +173,8 @@ public class PersonImpl implements PersonService {
 
                   personRepository.save(person);
                   flag = "Delete action successfully reversed";
+              }else{
+                  flag = "user deleted"; //we just dont want any error
               }
           }
       } catch (Exception e) {

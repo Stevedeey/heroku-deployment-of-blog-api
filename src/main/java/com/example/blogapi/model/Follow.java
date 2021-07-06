@@ -23,7 +23,7 @@ public class Follow extends Timer implements Serializable {
     private Long currentUserId;
 
     @Column(nullable = false)
-    private Long followerId;
+    private Long followeeId;
 
 
 }

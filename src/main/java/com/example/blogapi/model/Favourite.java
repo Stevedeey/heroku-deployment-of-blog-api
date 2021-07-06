@@ -10,11 +10,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
 @Entity
-public class Favourite extends Timer implements Serializable {
+public class Favourite  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

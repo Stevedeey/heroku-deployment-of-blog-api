@@ -5,6 +5,7 @@ import com.example.blogapi.model.Comment;
 import com.example.blogapi.model.Person;
 import com.example.blogapi.model.Post;
 import com.example.blogapi.repository.CommentRepository;
+import com.example.blogapi.repository.PersonRepository;
 import com.example.blogapi.repository.PostRepository;
 import com.example.blogapi.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import java.util.List;
 public class CommentServiveImpl implements CommentService {
     @Autowired
     CommentRepository commentRepository;
+
+    @Autowired
+    private PersonRepository personRepository;
 
     @Autowired
     PostRepository postRepository;
@@ -33,12 +37,13 @@ public class CommentServiveImpl implements CommentService {
         boolean result = false;
 
         try{
-
+            Person pers= personRepository.findById(userId).get();
             Post post = postRepository.findById(postId).get();
 
             Comment commentData = new Comment();
             //set the post
             commentData.setPost(post);
+            commentData.setPerson(pers);
             commentData.setComment(comment);
 
             commentRepository.save(commentData);
@@ -63,7 +68,7 @@ public class CommentServiveImpl implements CommentService {
 
             List<Comment> commentsData = commentRepository.findAllByPostId(postId);
 
-            commentsData.forEach(commentEach -> {
+                commentsData.forEach(commentEach -> {
                 CommentMapper comment = new CommentMapper();
 
                 //comment
@@ -100,11 +105,13 @@ public class CommentServiveImpl implements CommentService {
     public boolean editComment(Long commentId, Person person, Long postId, String comment) {
         boolean status = false;
 
+        Comment data = commentRepository.findById(commentId).get();
+
         try {
             Post post = postRepository.findById(postId).get();
 
-            Comment data = commentRepository.findById(commentId).get();
 
+            Person pers = personRepository.findPersonByEmail(person.getEmail()).get();
             data.setComment(comment);
             data.setPerson(person);
             data.setPost(post);

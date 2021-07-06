@@ -13,8 +13,6 @@ import java.util.Optional;
 public interface PersonRepository extends JpaRepository<Person, Long> {
     Optional<Person> findPersonByEmail(String email);
     List<Person> findAllByPersonDeactivated(int number);
-
-
-
+    List<Person> findAllByPersonDeactivatedEquals(int number);
 
 }

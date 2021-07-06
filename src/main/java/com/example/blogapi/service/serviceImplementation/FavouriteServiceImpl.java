@@ -58,19 +58,25 @@ public class FavouriteServiceImpl implements  FavouriteService {
 
         Person person1 = personRepository.findPersonByEmail(person.getEmail()).get();
 
-        Favourite favourite = new Favourite();
-        favourite.setCurrentUserId(person1.getId());
-        favourite.setPostId(postId);
+        List<Favourite> favourites = favouriteRepository.findFavouriteByCurrentUserIdAndPostId(person1.getId(), postId);
 
         try {
 
-            favouriteRepository.save(favourite);
+            if(favourites.size() == 0){
+                Favourite favourite = new Favourite();
+                favourite.setCurrentUserId(person1.getId());
+                favourite.setPostId(postId);
+
+                favouriteRepository.save(favourite);
+
+            }
+
             flag = true;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return flag;
     }
-
 }
